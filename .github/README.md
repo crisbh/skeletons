@@ -14,5 +14,5 @@ A collection of vim skeletons (templates)
 This repo should be cloned under a directory that is accessible by vim. By default, I adopt `.skeletons/`, i.e. I clone the repo as
 
 ```shell
-git clone https://github.com/crisbh/skeletons.git ~/.skeletons/
+git clone git@github.com:crisbh/skeletons.git ~/.skeletons/
 ```
