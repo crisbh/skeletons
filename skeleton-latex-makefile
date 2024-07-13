@@ -1,0 +1,28 @@
+# Variables
+LATEX = pdflatex
+BIBTEX = bibtex
+MAIN_TEX = main.tex
+OUTPUT_PDF = $(MAIN_TEX:.tex=.pdf)
+AUX_FILES = *.aux *.log *.out *.toc *.bbl *.blg
+
+# Default target
+all: $(OUTPUT_PDF)
+
+# Compile LaTeX document
+$(OUTPUT_PDF): $(MAIN_TEX)
+	$(LATEX) $(MAIN_TEX)
+	# Uncomment the following lines if your document uses bibliography
+	#$(BIBTEX) $(basename $(MAIN_TEX))
+	#$(LATEX) $(MAIN_TEX)
+	#$(LATEX) $(MAIN_TEX)
+
+# Clean up auxiliary files
+clean:
+	rm -f $(AUX_FILES)
+
+# Clean up all generated files
+cleanall: clean
+	rm -f $(OUTPUT_PDF)
+
+# Phony targets
+.PHONY: all clean cleanall
