@@ -1,0 +1,24 @@
+# Variables
+PYTHON = python
+DATA_SCRIPT = generate_data.py
+PLOT_SCRIPT = plot_data.py
+DATA_FILE = data.csv
+PLOT_FILE = plot.png
+
+# Default target
+all: $(PLOT_FILE)
+
+# Run data generation script
+$(DATA_FILE): $(DATA_SCRIPT)
+	$(PYTHON) $(DATA_SCRIPT) $(DATA_FILE)
+
+# Run plotting script
+$(PLOT_FILE): $(PLOT_SCRIPT) $(DATA_FILE)
+	$(PYTHON) $(PLOT_SCRIPT) $(DATA_FILE) $(PLOT_FILE)
+
+# Clean up generated files
+clean:
+	rm -f $(DATA_FILE) $(PLOT_FILE)
+
+# Phony targets
+.PHONY: all clean
